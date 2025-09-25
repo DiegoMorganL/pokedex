@@ -14,9 +14,33 @@ export default function Pokemon() {
     }
   };
 
+  // Colores modernos según tipo principal
+  const typeColors = {
+    fire: "bg-red-400",
+    water: "bg-blue-400",
+    grass: "bg-green-400",
+    electric: "bg-yellow-300",
+    poison: "bg-purple-400",
+    bug: "bg-lime-400",
+    normal: "bg-gray-300",
+    psychic: "bg-pink-400",
+    fighting: "bg-orange-400",
+    ice: "bg-cyan-200",
+    dragon: "bg-indigo-400",
+    dark: "bg-gray-700",
+    fairy: "bg-pink-300",
+    ghost: "bg-purple-700",
+    ground: "bg-yellow-600",
+    rock: "bg-gray-500",
+    steel: "bg-gray-400",
+    flying: "bg-sky-300",
+  };
+
+  const mainType = pokemon ? pokemon.types[0].type.name : "normal";
+  const bgColor = typeColors[mainType] || "bg-gray-300";
+
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-red-200 to-red-50 p-4">
-      
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-red-50 to-yellow-50 p-4">
       {/* Input y Botón */}
       <div className="flex mb-6">
         <input
@@ -34,21 +58,21 @@ export default function Pokemon() {
         </button>
       </div>
 
-      {/* Tarjeta del Pokémon */}
+      {/* Tarjeta Pokémon */}
       {pokemon && (
-        <div className="bg-white rounded-xl shadow-xl p-6 w-80 text-center transition-transform transform hover:scale-105">
-          <h2 className="text-2xl font-bold capitalize mb-4">{pokemon.name}</h2>
+        <div className={`rounded-xl shadow-xl p-6 w-80 text-center transition-transform transform hover:scale-105 ${bgColor}`}>
+          <h2 className="text-2xl font-bold capitalize mb-4 text-white">{pokemon.name}</h2>
           <img
             src={pokemon.sprites.front_default}
             alt={pokemon.name}
             className="mx-auto mb-4"
           />
-          <div className="grid grid-cols-2 gap-2 text-left">
-            <p><span className="font-bold">Altura:</span> {pokemon.height}</p>
-            <p><span className="font-bold">Peso:</span> {pokemon.weight}</p>
+          <div className="grid grid-cols-2 gap-2 text-left text-white font-semibold">
+            <p>Altura: {pokemon.height}</p>
+            <p>Peso: {pokemon.weight}</p>
             {pokemon.stats.map((stat) => (
               <p key={stat.stat.name}>
-                <span className="font-bold capitalize">{stat.stat.name}:</span> {stat.base_stat}
+                {stat.stat.name}: {stat.base_stat}
               </p>
             ))}
           </div>
