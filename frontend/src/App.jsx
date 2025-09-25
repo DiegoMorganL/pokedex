@@ -10,7 +10,7 @@ function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-start min-h-screen p-4 pt-28 bg-gradient-to-b from-red-500 via-orange-300 to-yellow-100">
       <Navbar toggleSidebar={toggleSidebar} />
       <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
       <Pokemon />

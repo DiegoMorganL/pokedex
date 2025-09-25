@@ -41,6 +41,9 @@ export default function Pokemon() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-red-50 to-yellow-50 p-4">
+      <h3 className="text-lg font-semibold text-gray-700 mb-3 tracking-wide">
+        Ingresa el número de Pokédex
+      </h3>
       {/* Input y Botón */}
       <div className="flex mb-6">
         <input

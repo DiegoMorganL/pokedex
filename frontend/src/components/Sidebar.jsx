@@ -5,7 +5,8 @@ export default function Sidebar({ isOpen, toggleSidebar }) {
         isOpen ? "translate-x-0" : "-translate-x-full"
       }`}
     >
-      <div className="p-4">
+      {/* Agregamos espacio para que no lo tape el navbar */}
+      <div className="pt-24 p-4">
         <h2 className="text-lg font-bold mb-4">Opciones</h2>
         <ul className="space-y-2">
           <li className="hover:bg-red-200 p-2 rounded cursor-pointer">Inicio</li>
